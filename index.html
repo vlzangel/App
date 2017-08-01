@@ -1,0 +1,490 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <!-- <meta http-equiv="Content-Security-Policy" content="default-src 'self' data: gap: https://ssl.gstatic.com 'unsafe-eval'; style-src 'self' 'unsafe-inline'; media-src *; img-src 'self' data: content:;"> -->
+        <meta name="format-detection" content="telephone=no">
+        <meta name="msapplication-tap-highlight" content="no">
+        <meta name="viewport" content="user-scalable=no, initial-scale=1, maximum-scale=1, minimum-scale=1, width=device-width">
+        <link rel="stylesheet" type="text/css" href="css/index.css">
+        <link rel="stylesheet" type="text/css" href="css/styles.css">
+        <link rel="stylesheet" type="text/css" href="css/menu.css">
+        <link rel="stylesheet" type="text/css" href="css/login.css">
+        <script src="js/jquery.js"></script>
+        <script src="js/config.js"></script>
+        <title>Kmimos</title>
+    </head>
+    <body>
+        <div class="header">
+            <img src="img/logo_kmimos.png">
+
+            <div class="barra">
+                <div class="items">
+                    <i id="btn-buscar" class="fa fa-search"></i>
+                    <i id="btn-menu" class="fa fa-bars"></i>
+                </div>
+            </div> 
+        </div>
+
+        <div class="menu_container">
+            <div class="menu">
+
+                <div class="img_portada">
+                    <div class='img_portada_fondo'></div>
+                    <div class='img_portada_normal'></div>
+                </div>
+
+                <ul id="menu_no_logeado">
+                    <li id="login_menu" > <i class="fa fa-sign-in"></i> Ingresar</li>
+                    <li id="log_login" > <i class="fa fa-user-plus"></i> Registrarme</li>
+                    <li id="del_login" > <i class="fa fa-line-chart icon_13"></i> Beneficios</li>
+                    <li id="" > <i class="fa fa-users icon_13"></i> Sobre Kmimos</li>
+                    <li id="" > <i class="fa fa-phone"></i> Cont&aacute;ctanos</li>
+                </ul>
+                
+                <ul id="user_cliente">
+
+                    <li id="" >Perfil</li>
+                    <li id="" >Mis Mascotas</li>
+                    <li id="" >Mis Reservas</li>
+                    <li id="" >Mis Solicitudes</li>
+
+                    <li id="camara" >Camara</li>
+                    <li id="galeria" >Galeria</li>
+
+                    <li id="" > <i class="fa fa-line-chart icon_13"></i> Beneficios</li>
+                    <li id="" > <i class="fa fa-users icon_13"></i> Sobre Kmimos</li>
+                    <li id="" > <i class="fa fa-phone"></i> Cont&aacute;ctanos</li>
+
+                    <li id="salir_cliente" > <i class="fa fa-sign-out"></i> Cerrar Sesi&oacute;n</li>
+
+                </ul>
+                
+                <ul id="user_cuidador">
+
+                    <li id="" >Perfil</li>
+                    <li id="" >Mis Mascotas</li>
+                    <li id="" >Mis Reservas</li>
+                    <li id="" >Mis Solicitudes</li>
+
+                    <li id="" >Descripci&oacute;n</li>
+                    <li id="" >Servicios</li>
+
+                    <li id="" > <i class="fa fa-line-chart icon_13"></i> Beneficios</li>
+                    <li id="" > <i class="fa fa-users icon_13"></i> Sobre Kmimos</li>
+                    <li id="" > <i class="fa fa-phone"></i> Cont&aacute;ctanos</li>
+                    <li id="salir_cuidador" > <i class="fa fa-sign-out"></i> Cerrar Sesi&oacute;n</li>
+
+                </ul>
+                
+            </div>
+            <div id="menu_close"></div>
+        </div>
+
+        <div class="body">
+            <div id='listado_box'>
+                <div id='listado'></div>
+                <div id='cargar_mas'> Cargar m&aacute;s </div>
+            </div>
+        </div>
+
+        <div id="buscar" class="body">
+            <form id="form_buscar">
+                <input type="hidden" id='page' name='page' value="0">
+
+                <div class="modal_servicios" style="display: none;">
+                    <div class="modal_container">
+                        <div class="modal_box"> 
+                            <i id="close_mas_servicios" class="fa fa-times" aria-hidden="true"></i>
+                            <div class="boton_servicio">
+                                <input type="checkbox" name="servicios[]" id="servicio_cuidador_corte" class="servicio_cuidador_corte" value="corte" data-key="corte"> 
+                                <label for="servicio_cuidador_corte">
+                                    <i class="icon-peluqueria"></i>
+                                    <p>Corte de Pelo y U&ntilde;as</p> 
+                                </label>
+                            </div>
+                            <div class="boton_servicio">
+                                <input type="checkbox" name="servicios[]" id="servicio_cuidador_bano" class="servicio_cuidador_bano" value="bano" data-key="bano"> 
+                                <label for="servicio_cuidador_bano">
+                                    <i class="icon-bano"></i>
+                                    <p>Ba&ntilde;o y Secado</p> 
+                                </label>
+                            </div>
+                            <div class="boton_servicio">
+                                <input type="checkbox" name="servicios[]" id="servicio_cuidador_transportacion_sencilla" class="servicio_cuidador_transportacion_sencilla" value="transportacion_sencilla" data-key="transportacion_sencilla"> 
+                                <label for="servicio_cuidador_transportacion_sencilla">
+                                    <i class="icon-transporte"></i>
+                                    <p>Transporte Sencillo</p> 
+                                </label>
+                            </div>
+                            <div class="boton_servicio">
+                                <input type="checkbox" name="servicios[]" id="servicio_cuidador_transportacion_redonda" class="servicio_cuidador_transportacion_redonda" value="transportacion_redonda" data-key="transportacion_redonda"> 
+                                <label for="servicio_cuidador_transportacion_redonda">
+                                    <i class="icon-transporte2"></i>
+                                    <p>Transporte Redondo</p> 
+                                </label>
+                            </div>
+                            <div class="boton_servicio">
+                                <input type="checkbox" name="servicios[]" id="servicio_cuidador_visita_al_veterinario" class="servicio_cuidador_visita_al_veterinario" value="visita_al_veterinario" data-key="visita_al_veterinario"> 
+                                <label for="servicio_cuidador_visita_al_veterinario"> 
+                                    <i class="icon-veterinario"></i>
+                                    <p>Visita al Veterinario</p> 
+                                </label>
+                            </div>
+                            <div class="boton_servicio">
+                                <input type="checkbox" name="servicios[]" id="servicio_cuidador_limpieza_dental" class="servicio_cuidador_limpieza_dental" value="limpieza_dental" data-key="limpieza_dental">
+                                <label for="servicio_cuidador_limpieza_dental">
+                                    <i class="icon-limpieza"></i>
+                                    <p>Limpieza Dental</p> 
+                                </label>
+                            </div>
+                            <div class="boton_servicio"> 
+                                <input type="checkbox" name="servicios[]" id="servicio_cuidador_acupuntura" class="servicio_cuidador_acupuntura" value="acupuntura" data-key="acupuntura">
+                                <label for="servicio_cuidador_acupuntura"> 
+                                    <i class="icon-acupuntura"></i>
+                                    <p>Acupuntura</p>
+                                </label>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="adicionales_container"> 
+                    <div class='cell_100'>
+                        <label class="titulo_buscar_label">ESTOY BUSCANDO</label>
+                    </div>
+                </div>
+                <div class="servicios_container" style="margin: 10px 5px;">
+                    <input type="text" name="nombre" id="nombre" class="cell_100" placeholder="Buscar por nombre" >
+                </div>
+                <div class="servicios_container">
+                    <div class="cell_50">
+                        <div class="boton_servicio"> 
+                            <input type="checkbox" name="servicios[]" id="servicio_cuidador_hospedaje" class="servicio_cuidador_hospedaje" value="hospedaje" data-key="hospedaje">
+                            <label for="servicio_cuidador_hospedaje"> <i class="icon-hospedaje"></i>
+                                <p>
+                                    <span>Hospedaje</span>
+                                    <sup>cuidado d&iacute;a y noche</sup>
+                                </p> 
+                            </label>
+                        </div>
+                    </div>
+                    <div class="cell_50">
+                        <div class="boton_servicio">
+                            <input type="checkbox" name="servicios[]" id="servicio_cuidador_guarderia" class="servicio_cuidador_guarderia" value="guarderia" data-key="guarderia">  
+                            <label for="servicio_cuidador_guarderia"> 
+                                <i class="icon-guarderia"></i>
+                                <p>
+                                    <span>Guarder&iacute;a</span>
+                                    <sup>cuidado durante el d&iacute;a</sup>
+                                </p> 
+                            </label>
+                        </div>
+                    </div>
+                    <div class="cell_50">
+                        <div class="boton_servicio"> 
+                            <input type="checkbox" name="servicios[]" id="servicio_cuidador_paseos" class="servicio_cuidador_paseos" value="paseos" data-key="paseos"> 
+                            <label for="servicio_cuidador_paseos"> 
+                                <i class="icon-paseos"></i>
+                                <p>
+                                    <span>Paseos</span>
+                                </p> 
+                            </label>
+                        </div>
+                    </div>
+                    <div class="cell_50">
+                        <div class="boton_servicio"> 
+                            <input type="checkbox" name="servicios[]" id="servicio_cuidador_adiestramiento" class="servicio_cuidador_adiestramiento" value="adiestramiento" data-key="adiestramiento">    
+                            <label for="servicio_cuidador_adiestramiento"> 
+                                <i class="icon-adiestramiento"></i>
+                                <p><span>Entrenamiento</span></p> 
+                            </label>
+                        </div>
+                    </div>
+                </div>
+                <div class="selector_tipo_container">
+                    <label for="otra-localidad" class="por_ubicacion input_select"> 
+                        Otra localidad 
+                        <input type="radio" name="tipo_busqueda" id="otra-localidad" value="otra-localidad" checked=""> 
+                    </label>  
+                    <label for="mi-ubicacion" class="por_ubicacion"> 
+                        Mi ubicaci&oacute;n 
+                        <input type="radio" name="tipo_busqueda" id="mi-ubicacion" value="mi-ubicacion"> 
+                    </label>
+                </div>
+                <div class="selects_ubicacion_container"> 
+                    <div class="cell_50">
+                        <select id="estado_cuidador" name="estados">
+                            <option value="">Seleccione un estado</option>
+                            <option value="7">Aguascalientes</option>
+                            <option value="8">Baja California</option>
+                            <option value="9">Baja California Sur</option>
+                            <option value="10">Campeche</option>
+                            <option value="13">Chiapas</option>
+                            <option value="14">Chihuahua</option>
+                            <option value="1">Ciudad de M&eacute;xico</option>
+                            <option value="11">Coahuila de Zaragoza</option>
+                            <option value="12">Colima</option>
+                            <option value="15">Durango</option>
+                            <option value="2">Estado de M&eacute;xico</option>
+                            <option value="16">Guanajuato</option>
+                            <option value="17">Guerrero</option>
+                            <option value="18">Hidalgo</option>
+                            <option value="3">Jalisco</option>
+                            <option value="19">Michoac&aacute;n de Ocampo</option>
+                            <option value="20">Morelos</option>
+                            <option value="21">Nayarit</option>
+                            <option value="4">Nuevo Le&oacute;n</option>
+                            <option value="22">Oaxaca</option>
+                            <option value="23">Puebla</option>
+                            <option value="24">Queretaro</option>
+                            <option value="25">Quintana Roo</option>
+                            <option value="26">San Luis Potosi</option>
+                            <option value="27">Sinaloa</option>
+                            <option value="28">Sonora</option>
+                            <option value="29">Tabasco</option>
+                            <option value="30">Tamaulipas</option>
+                            <option value="31">Tlaxcala</option>
+                            <option value="32">Veracruz de Ignacio de la Llave</option>
+                            <option value="33">Yucatan</option>
+                            <option value="34">Zacatecas</option> 
+                        </select>
+                    </div>
+                    <div class="cell_50">
+                        <select id="municipio_cuidador" name="municipios">
+                            <option value="">Seleccione primero un estado</option> 
+                        </select>
+                    </div>
+                </div>
+                <div class="servicios_container tamanos_mascotas">
+                    <div class="cell_50">
+                        <div class="boton_servicio"> 
+                            <input type="checkbox" name="tamanos[]" id="tamano_mascota_pequenos" value="pequenos" class="servicio_cuidador_pequenos" data-key="pequenos">
+                            <label for="tamano_mascota_pequenos">
+                                <p>
+                                    Peque&ntilde;os <br>
+                                    <sub>0.0 cm - 25.0cm</sub>
+                                </p>
+                            </label>
+                        </div>
+                    </div>
+                    <div class="cell_50">
+                        <div class="boton_servicio">
+                            <input type="checkbox" name="tamanos[]" id="tamano_mascota_medianos" value="medianos" class="servicio_cuidador_medianos" data-key="medianos">
+                            <label for="tamano_mascota_medianos">
+                                <p>
+                                    Medianos <br>
+                                    <sub>25.0 cm - 58.0 cm</sub>
+                                </p>
+                            </label>
+                        </div>
+                    </div>
+                    <div class="cell_50">
+                        <div class="boton_servicio">
+                            <input type="checkbox" name="tamanos[]" id="tamano_mascota_grandes" value="grandes" class="servicio_cuidador_grandes" data-key="grandes">
+                            <label for="tamano_mascota_grandes">
+                                <p>
+                                    Grandes <br>
+                                    <sub>58.0 cm - 73.0 cm</sub>
+                                </p>
+                            </label>
+                        </div>
+                    </div>
+                    <div class="cell_50">
+                        <div class="boton_servicio">
+                            <input type="checkbox" name="tamanos[]" id="tamano_mascota_gigantes" value="gigantes" class="servicio_cuidador_gigantes" data-key="gigantes">
+                            <label for="tamano_mascota_gigantes">
+                                <p>
+                                    Gigantes <br>
+                                    <sub>73.0 cm - 200.0 cm</sub>
+                                </p>
+                            </label>
+                        </div>
+                    </div>
+                </div>
+
+                <div class='cell_100'>
+                    <div class="adicionales_button">Servicios adicionales...</div>
+                </div>
+            </form>
+
+            <div class="botones_container">
+                <div class="buscar_btn">Aplicar Filtro</div>
+            </div>
+            <div class="cuidador_padding"></div>
+        </div>
+
+        <div id='perfil_box' class="body">
+            <i id='close_cuidador' class="fa fa-times-circle"></i>
+            <div class="contenedor_portada_cuidador">
+                <div class="img_fondo_cuidador"></div>
+                <div class="img_cuidador"></div>
+                <div class="nom_cuidador"></div>
+            </div>
+
+            <div id='galeria_box'>
+                <div class="cuidador_titulo">Galer&iacute;a del Cuidador</div>
+                <div class="galeria_container"><div class="galeria_box"></div></div>
+            </div>
+
+            <div class="cuidador_titulo">Descripci&oacute;n del Cuidador</div>
+            <div class="cuidador_descripcion"></div>
+
+            <div class="cuidador_titulo">Detalles del Cuidador</div>
+
+            <div class="cuidador_destalles">
+                <div class="vlz_item_detalles">
+                    <div class='item_box'>
+                        <label>Tipo de propiedad</label>
+                        <div class="icon">
+                            <img alt="Detalles casa" height="32px" src="img/iconos/casa.png">
+                        </div>
+                        <span id='tipo_propiedad'></span>
+                    </div>
+                </div>
+
+                <div class="vlz_item_detalles">
+                    <div class='item_box'>
+                        <label>Tama&ntilde;os aceptados</label>
+                        <div class="icon">
+                            <img alt="Detalles perro grande" height="32px" src="img/iconos/detalles-perro-grande.png">
+                        </div>
+                        <span id='tamanos_aceptados'></span>
+                    </div>
+                </div>
+
+                <div class="vlz_separador_item"></div>
+
+                <div class="vlz_item_detalles">
+                    <div class='item_box'>
+                        <label>Edades aceptadas</label>
+                        <div class="icon">
+                            <img alt="Detalles edad perro cachorro" height="32px" src="img/iconos/detalles-edad-perro-cachorro.png">
+                        </div>
+                        <span id='edades_aceptadas'></span>
+                    </div>
+                </div>
+
+                <div class="vlz_item_detalles">
+                    <div class='item_box'>
+                        <label>A&ntilde;os de experiencia</label>
+                        <div class="icon">
+                            <img alt="Detalles experiencia" height="32px" src="img/iconos/detalles-experiencia.png">
+                        </div>
+                        <span id='experiencia'></span>
+                    </div>
+                </div>
+            </div>
+
+
+            <div class="cuidador_titulo">Otros Detalles</div>
+            <div class="cuidador_destalles">
+                <div class="vlz_item_detalles">
+                    <div class='item_box'>
+                        <label>Mascotas en casa</label>
+                        <div class="icon">
+                            <img alt="Detalles casa" height="32px" src="img/iconos/otros-detalles-otros-perros.png">
+                        </div>
+                        <span id='mascotas_en_casa'></span>
+                    </div>
+                </div>
+
+                <div class="vlz_item_detalles">
+                    <div class='item_box'>
+                        <label>Mi propiedad</label>
+                        <div class="icon">
+                            <img alt="Detalles perro grande" height="32px" src="img/iconos/otros-detalles-patio.png">
+                        </div>
+                        <span id='patio'></span>
+                    </div>
+                </div>
+
+                <div class="vlz_separador_item"></div>
+
+                <div class="vlz_item_detalles">
+                    <div class='item_box'>
+                        <label>Mi propiedad</label>
+                        <div class="icon">
+                            <img alt="Detalles edad perro cachorro" height="32px" src="img/iconos/otros-detalles-areas-verdes.png">
+                        </div>
+                        <span id='areas_verdes'></span>
+                    </div>
+                </div>
+
+                <div class="vlz_item_detalles">
+                    <div class='item_box'>
+                        <label>Perros aceptados</label>
+                        <div class="icon">
+                            <img alt="Detalles experiencia" height="32px" src="img/iconos/otros-detalles-cantidad-perros.png">
+                        </div>
+                        <span id='cantidad_mascotas'></span>
+                    </div>
+                </div>
+            </div>
+
+            <div class="map_container">
+                <div id='map'></div>
+                <div class="map_bloqueo"></div>
+            </div>
+
+            <div class="botones_container">
+                <div class="conocer_btn">Conocer</div>
+                <div id="reservar" class="reservar_btn">Reservar</div>
+            </div>
+            <div class="cuidador_padding"></div>
+        </div>
+
+        <div id="login" class="body">
+            <i id="cerrar_login" class="fa fa-times"></i>
+            <form id="form_login" autocomplete="off">
+
+                <label>
+                    <i class="fa fa-envelope icon_input icon_13" aria-hidden="true"></i>
+                    <input type="text" name="email" autocomplete="off" placeholder="Correo Electr&oacute;nico">
+                    <i class="fa fa-check-circle check_validacion"></i>
+                </label>
+                <label>
+                    <i class="fa fa-unlock-alt icon_input" aria-hidden="true"></i>
+                    <input type="password" name="clave" autocomplete="off" placeholder="Contrase&ntilde;a">
+                    <i class="fa fa-check-circle check_validacion"></i>
+                </label>
+
+                <div class='opciones_login'>
+                    <span>Olvide mi contrase&ntilde;a</span>
+                    <span>Crear una cuenta</span>
+                </div>
+
+                <span id="submit_login" class='submit_btn'>INICIAR SESI&Oacute;N</span>
+            </form>
+        </div>
+
+        <div class="footer"></div>
+
+        <div class="cargando">
+
+            <div class="cargando_container">
+                
+                <div class="cargando_box">
+                    <i class="fa fa-spinner"></i>
+                    <span>Cargando...</span>
+                </div>
+
+            </div>
+
+        </div>
+
+        <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyD-xrN3-wUMmJ6u2pY_QEQtpMYquGc70F8&callback=initMap" async defer></script>
+
+        <link href="css/kmimos.css"                       rel="stylesheet">
+        <link href="css/font-awesome.min.css"                       rel="stylesheet">
+        <link href="https://fonts.googleapis.com/css?family=Roboto" rel="stylesheet">
+
+        
+
+        <script type="text/javascript" src="js/js.js"></script>
+        <script type="text/javascript" src="js/login.js"></script>
+
+        <script type="text/javascript" src="cordova.js"></script>
+        <script type="text/javascript" src="js/index.js"></script>
+
+    </body>
+</html>
